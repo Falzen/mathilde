@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'Daniel';
-  src: url('../fonts/font_type_handwritten/daniel/daniel.woff') format('woff'),
-       url('../fonts/daniel/daniel.otf') format('opentype'),
-       url('../fonts/daniel/daniel.ttf') format('truetype');
+	font-family: 'Daniel';
+	src: url('../fonts/daniel/daniel.woff') format('woff'),
+	url('../fonts/daniel/daniel.otf') format('opentype'),
+	url('../fonts/daniel/daniel.ttf') format('truetype');
 }
 
 body:after {	
 	background-image: url(../../images/bg/mathilde01.jpg);
-	filter: blur(12px) brightness(0.25);
+	filter: blur(12px) brightness(0.45);
 }
 
 ul {
@@ -15,19 +15,61 @@ ul {
 	padding: 0;
 	list-style: none;
 }
+*, * > * {
+	box-sizing: border-box !important;
+}
+
+/*
+♩	Musical quarter note	&#9833;
+♪	Musical eighth note	&#9834;
+♫	Musical single bar note	&#9835;
+♬	Musical double bar note	&#9836;
+♭	Flat note	&#9837;
+♮	Natural note	&#9838;
+♯	Sharp note	&#9839;
+𝄪	Double sharp note	&#119082;
+𝄆	Musical Symbol Left Repeat Sign	&#x1D106;
+𝄇	Musical Symbol Right Repeat Sign	&#x1D107;
+𝄈	Musical Symbol Repeat Dots	&#x1D108;
+𝄐	Musical Symbol Fermata	&#x1D110;
+𝄑	Musical Symbol Fermata Below	&#x1D111;
+𝄒	Musical Symbol Breath Mark	&#x1D112;
+𝆒	Musical Symbol Crescendo	&#x1D192;
+𝆓	Musical Symbol Decrescendo	&#x1D193;
+𝄫	Double flat note	&#119083;
+𝄞	G clef	&#119070;
+𝄢	F clef	&#119074;
+𝄡	C clef	&#119073;
+🎹	Keyboard	&#127929;
+🎼	Score	&#127932;
+♪	Eighth note alt code	13
+♫	Single bar note alt code	14
+*/
+
+
+#header {
+	z-index: 1;
+}
+
+
+.fa-comment {
+	cursor: pointer;
+}
 
 
 
-
-
-
-
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
 
 
 #site-menu-icon {
+
 	font-size: 50px;
-	color: white;
-	color: purple;
+	color: silver;
+	text-shadow: 2px 2px 4px #000000;
 
 	position: fixed;
 	right: 10vw;
@@ -38,11 +80,12 @@ ul {
 }
 #site-menu-icon.is-open {
 	right: 500px;
-	z-index: 11100;
+	z-index: 11111;
 }
 
 #site-menu-icon:hover {
-	text-shadow: white 1px 0 10px; 
+	color: whitesmoke;
+	text-shadow: 3px 3px 6px #000000;
 }
 
 
@@ -64,7 +107,7 @@ ul {
 	opacity: 1;
 }
 #main-menu-overlay.is-over-everything {
-	z-index: 11100;
+	z-index: 1000;
 }
 
 
@@ -86,7 +129,8 @@ ul {
 }
 
 
-#main-menu ul li {
+#main-menu ul li a {
+	display: block;
 	/* 7 here is the number of items in the menu (nb of <li>) */
 	height: calc((100vh / 7) - 12px);
 	margin-bottom: 12px;
@@ -104,16 +148,28 @@ ul {
 	position: relative;
 	right: -5px;
 
-transition: all 0.2s ease;
+	transition: all 0.2s ease;
 }
 
-#main-menu ul li:last-child {
+#main-menu ul li:last-child a {
 	/* 7 here is the number of items in the menu (nb of <li>) */
 	height: calc((100vh / 7) - 12px);
+	position: relative;
+
 }
 
-#main-menu ul li:hover {
-  transform: perspective(600px) rotateY(-5deg);
+.notyet {
+	position: absolute;
+	left: 250px;
+	color: tomato;
+	font-weight: bold;
+	font-size: 20px;
+	letter-spacing: 2px;
+	transform: rotate(-15deg);
+}
+
+#main-menu ul li a:hover {
+	transform: perspective(600px) rotateY(-5deg);
 	background-color: white;
 
 }
@@ -122,6 +178,253 @@ transition: all 0.2s ease;
 
 
 
+
+
+
+
+
+
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+
+
+
+
+
 #main > .inner {
 	box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.85);
+
+	margin: 0 auto;
+	width: 80vw;
+	max-width: 90%;
+	margin-bottom: 2rem;
 }
+
+
+.hide {
+	display: none;
+	opacity: 0;
+}
+
+ul#homepage-dates-list {
+	display:flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+
+	transform: perspective(600px);
+	margin-top: 2rem;
+}
+ul#homepage-dates-list li {
+	/* MAX 3 dates affichées */
+	max-width: 30%;
+	background: whitesmoke;
+	padding: 1.5rem 2rem;	
+	box-shadow: 0 0 8px 1px #c3c3c3;
+	cursor: pointer;
+	/* transform: perspective(500px) rotateX(13deg); */
+
+	transition: all 0.1s ease;
+}
+
+/*
+ul#homepage-dates-list li:nth-child(1):hover {
+	transform: perspective(500px) rotateX(3deg);
+	box-shadow: -7px 8px 20px 3px #c3c3c3;
+
+}
+ul#homepage-dates-list li:nth-child(2):hover {
+	transform: perspective(500px) rotateX(3deg);
+	box-shadow: -1px 10px 20px 3px #c3c3c3;
+
+}
+ul#homepage-dates-list li:nth-child(3):hover {
+	transform: perspective(500px) rotateX(3deg);
+	box-shadow: 6px 8px 20px 3px #c3c3c3;
+
+}
+*/
+.one-date {
+}
+.one-date h1,
+.one-date h2,
+.one-date h3 {
+	margin: 0 0 4px 0;
+	text-align: center;
+	line-height: 2rem;
+}
+
+.one-date h1 {
+	font-size: 1.35rem;
+}
+.one-date h2 {
+	font-size: 1.75rem;
+	padding-bottom: .75rem;
+	padding-top: .75rem;
+}
+.one-date h2::after {
+	display: none;
+}
+.one-date h3 {
+	font-size: 1.35rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+
+
+
+.projects-list tr:hover {
+	
+}
+.projects-list tr {
+	border-color: rgba(144, 144, 144, 0.25);
+}
+
+.projects-list tr:nth-child(odd) {
+	background-color: rgba(144, 144, 144, 0.075);
+}
+.projects-list tr:hover {
+	background-color: rgba(144, 144, 174, 0.25);
+}
+
+.projects-list tr:nth-child(odd):hover {
+	background-color: rgba(144, 144, 174, 0.25);
+}
+.projects-list td a {
+	color: black !important;
+	font-size: 1.05rem;
+}
+
+
+
+
+
+
+
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+
+
+
+
+
+
+
+
+
+
+.project-page .project-name,
+.project-page .project-distribution {
+	text-align: center;
+}
+
+
+.project-page .project-description {
+	margin-bottom: 16px;
+
+}
+
+
+.project-pics-title,
+.project-vids-title,
+.project-dates-title {
+	text-align: center;
+	margin-bottom: 8px;
+	margin-top: 26px;
+}
+
+.project-page ul.pics-gallery,
+.project-page ul.vids-gallery {
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.project-page ul.pics-gallery,
+.project-page ul.vids-gallery,
+.project-page .table-wrapper {
+
+	padding-top: 18px;	
+	/* border-radius: 15px 0 0 0; */
+	border-top: 0.5px solid grey;
+}
+.project-page .pics-gallery li,
+.project-page .vids-gallery li {
+    width: calc(100% / 3);
+    padding: 0;
+}
+.project-page .pics-gallery li img{
+	cursor: pointer;
+	width: 100%;
+}
+
+.project-page .pics-gallery li img {
+}
+.project-page .pics-gallery li:hover img {
+	filter: brightness(1.35);
+}
+
+
+
+.project-page ul.vids-gallery {
+	justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+/* ************************************************************** */
+
+
+
+
+.harpe-page .image.fit.flush {
+	height: 200px;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
